@@ -1,19 +1,17 @@
-import {makeStyles} from "@material-ui/core";
+import {makeStyles} from '@material-ui/core';
 
 const useStyles = makeStyles(({
-	paginItem: {
-		"&:hover": {
-			backgroundColor: "#2A4365 !important",
-			color: "#F7FAFC !important"
-		}
-	},
-	selected: {
-		color: "#F7FAFC"
-	}
+  paginItem: {
+    '&:hover': {
+      backgroundColor: '#2A4365 !important',
+      color: '#F7FAFC !important'
+    }
+  },
+  selected: {
+    color: '#F7FAFC'
+  }
 }));
 
-const PaginationStyles = () => {
-	return useStyles();
-};
+const PaginationStyles = () => useStyles();
 
 export default PaginationStyles;

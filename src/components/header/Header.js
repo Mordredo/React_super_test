@@ -1,14 +1,16 @@
-import React from "react";
-import {Button, Grid, Avatar, AppBar} from "@material-ui/core";
+import React from 'react';
+import {
+  Button, Grid, Avatar, AppBar
+} from '@material-ui/core';
 
-import avatar from "../../images/avatar.png";
-import logo from "../../images/logo.svg";
-import HeaderStyles from './HeaderStyles'
+import avatar from '../../images/avatar.png';
+import logo from '../../images/logo.svg';
+import HeaderStyles from './HeaderStyles';
 
 function Header() {
-	const classes = HeaderStyles();
+  const classes = HeaderStyles();
 
-	return (
+  return (
 		<AppBar position="fixed" color="primary">
 			<Grid container>
 				<Grid xs={6} container item direction="row" justify="flex-start" alignItems="center">
@@ -20,7 +22,7 @@ function Header() {
 				</Grid>
 			</Grid>
 		</AppBar>
-	)
+  );
 }
 
 export default Header;
