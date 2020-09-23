@@ -29,9 +29,7 @@ const useStyles = makeStyles(({
 }));
 
 const NavbarStyles = () => {
-	const classes = useStyles();
-
-	return classes;
+	return useStyles();
 };
 
 export default NavbarStyles;

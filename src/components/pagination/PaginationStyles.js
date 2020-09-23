@@ -3,8 +3,8 @@ import {makeStyles} from "@material-ui/core";
 const useStyles = makeStyles(({
 	paginItem: {
 		"&:hover": {
-			backgroundColor: "#2A4365",
-			color: "#F7FAFC"
+			backgroundColor: "#2A4365 !important",
+			color: "#F7FAFC !important"
 		}
 	},
 	selected: {
@@ -13,9 +13,7 @@ const useStyles = makeStyles(({
 }));
 
 const PaginationStyles = () => {
-	const classes = useStyles();
-
-	return classes;
+	return useStyles();
 };
 
 export default PaginationStyles;

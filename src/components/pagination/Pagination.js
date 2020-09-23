@@ -20,17 +20,10 @@ const PaginationControlled = (params) => {
 
 	return (
 		<Grid container direction="row" justify="center">
-			<Pagination count={params.count} hideNextButton={true} hidePrevButton={true} page={curPage}
-						onChange={handleChange}
-						renderItem={(item) => {
-							return (
-								<PaginationItem className={classes.paginItem} classes={{selected: classes.selected}}
-												to={`/inbox${item.page === 1 ? "" : `?page=${item.page}`}`} {...item}/>
-							)
-						}}
-			/>
+			<Pagination count={params.count} hideNextButton={true} hidePrevButton={true} page={curPage} onChange={handleChange} renderItem={(item) => {return (
+				<PaginationItem className={classes.paginItem} classes={{selected: classes.selected}} to={`/inbox${item.page === 1 ? "" : `?page=${item.page}`}`} {...item}/>)}}/>
 		</Grid>
 	);
-}
+};
 
 export default PaginationControlled;

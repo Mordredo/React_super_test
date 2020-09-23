@@ -74,9 +74,7 @@ const useStyles = makeStyles(({
 }));
 
 const TableStyles = () => {
-	const classes = useStyles();
-
-	return classes;
+	return useStyles();
 };
 
 export default TableStyles;

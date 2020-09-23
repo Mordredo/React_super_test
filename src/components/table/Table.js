@@ -75,25 +75,25 @@ function TableBlock(params){
         </TableHead>
         <TableBody>
             {
-              newList.slice(params.curPage ,params.pageList).map( (elem) => {
+              newList.slice(params.curPage ,params.pageList).map( (tableElem) => {
                 return (
-                  <TableRow key={elem.id} className={classes.tableRow} >
+                  <TableRow key={tableElem.id} className={classes.tableRow} >
                     <TableCell className={classes.tableBodyCell + ' ' + classes.tableBodyCellTitle}>
                       <Grid container direction="column" >
-						  <Typography variant="body1" className={classes.tableTitle} color="primary">{elem.title}</Typography>
-						  <Typography variant="body2" color="textSecondary">{elem.subtitle}</Typography>
+						  <Typography variant="body1" className={classes.tableTitle} color="primary">{tableElem.title}</Typography>
+						  <Typography variant="body2" color="textSecondary">{tableElem.subtitle}</Typography>
                       </Grid>
                     </TableCell>
                     <TableCell className={classes.tableBodyCell}>
-                        <Grid container direction="row" alignItems="center" justify="center" className={DetectStatus(elem.status) + " " + classes.tableStatus}>
-							<Typography variant="subtitle1">{elem.status}</Typography>
+                        <Grid container direction="row" alignItems="center" justify="center" className={DetectStatus(tableElem.status) + " " + classes.tableStatus}>
+							<Typography variant="subtitle1">{tableElem.status}</Typography>
                         </Grid>
                     </TableCell>
                     <TableCell className={classes.tableBodyCell}>
                         <Grid container direction="row" alignItems="center">
-							<Typography variant="body2" className={classes.tableStatsNum} color="primary">{elem.views}</Typography>
+							<Typography variant="body2" className={classes.tableStatsNum} color="primary">{tableElem.views}</Typography>
 							<Typography variant="body2" className={classes.tableStatsText} color="textSecondary" >views</Typography>
-							{DetectViewsStatus(elem.viewsStatus)}
+							{DetectViewsStatus(tableElem.viewsStatus)}
                         </Grid>
                     </TableCell>
                     <TableCell className={classes.tableBodyCell + ' ' + classes.tableBodyCellLast}>

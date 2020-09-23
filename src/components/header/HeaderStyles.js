@@ -16,9 +16,7 @@ const useStyles = makeStyles(({
 }));
 
 const HeaderStyles = () => {
-	const classes = useStyles();
-
-	return classes;
+	return useStyles();
 };
 
 export default HeaderStyles;
