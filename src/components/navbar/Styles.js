@@ -1,26 +1,22 @@
 import {makeStyles} from '@material-ui/core';
 
-const useStyles = makeStyles(({
+export default makeStyles( (theme) => ({
   menuList: {
-    padding: '7.2rem 7rem',
+    padding: theme.spacing(9),
     backgroundColor: '#E5E5E5',
-    height: '100%',
-    '&:active': {
-      border: 'none'
-    }
+    height: '100%'
   },
   menuItem: {
-    padding: '0',
-    marginBottom: '3.1rem',
+    marginBottom: theme.spacing(3),
     '&:hover': {
       backgroundColor: 'transparent'
     }
   },
   menuTitle: {
-    marginBottom: '3rem'
+    marginBottom: theme.spacing(3),
   },
   menuText: {
-    marginLeft: '1.3rem',
+    marginLeft: theme.spacing(2),
     transition: '0.2s linear',
     '&:hover': {
       fontWeight: '900'
@@ -28,6 +24,3 @@ const useStyles = makeStyles(({
   }
 }));
 
-const NavbarStyles = () => useStyles();
-
-export default NavbarStyles;

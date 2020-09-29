@@ -1,6 +1,6 @@
 import {makeStyles} from '@material-ui/core';
 
-const useStyles = makeStyles(({
+const useStyles = makeStyles( (theme) => ({
   headerBtn: {
     color: '#fff',
     backgroundColor: '#D53F8C',
@@ -8,13 +8,11 @@ const useStyles = makeStyles(({
     lineHeight: '1.8rem',
     width: '8.2rem',
     height: '3.2rem',
-    marginRight: '3rem',
+    marginRight: theme.spacing(4),
     '&:hover': {
       backgroundColor: '#ED64A6'
     }
   }
 }));
 
-const HeaderStyles = () => useStyles();
-
-export default HeaderStyles;
+export default useStyles;

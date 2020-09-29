@@ -7,7 +7,7 @@ const theme = createMuiTheme({
       sm: 600,
       md: 960,
       lg: 1360,
-      xl: 1920,
+      xl: 1960,
       xxl: 2480
     }
   },
@@ -106,6 +106,15 @@ const theme = createMuiTheme({
     text: {
       secondary: '#A0AEC0',
       primary: '#4299E1'
+    },
+    error:{
+      main: '#FC8181'
+    },
+    success:{
+      main: '#9AE6B4'
+    },
+    warning:{
+      main: '#FBD38D'
     }
   }
 });

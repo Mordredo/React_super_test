@@ -5,7 +5,7 @@ import {
 
 import avatar from '../../images/avatar.png';
 import logo from '../../images/logo.svg';
-import HeaderStyles from './HeaderStyles';
+import HeaderStyles from './Styles';
 
 function Header() {
   const classes = HeaderStyles();
@@ -13,10 +13,10 @@ function Header() {
   return (
 		<AppBar position="fixed" color="primary">
 			<Grid container>
-				<Grid xs={6} container item direction="row" justify="flex-start" alignItems="center">
+				<Grid xs={6} container item justify="flex-start" alignItems="center">
 					<img src={logo} alt="logo"/>
 				</Grid>
-				<Grid xs={6} container item direction="row" justify="flex-end" alignItems="center">
+				<Grid xs={6} container item justify="flex-end" alignItems="center">
 					<Button size="medium" className={classes.headerBtn}>Pro plan</Button>
 					<Avatar src={avatar} alt="avatar" className={classes.avatar}/>
 				</Grid>

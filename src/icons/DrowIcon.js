@@ -1,16 +1,24 @@
 import React from 'react';
 import {SvgIcon, makeStyles} from '@material-ui/core';
 
-const useStyles = makeStyles(({
-  svg: {
-    width: '2rem',
-    height: '2rem',
-    fill: 'none'
-  }
+const useStyles = makeStyles( (theme) =>({
+  svg: ({ color, width, height, strokeWidth }) => ({
+    width: width,
+    height: height,
+    '& > *': {
+      fill: 'transparent',
+      stroke: color || 'none',
+      strokeWidth: strokeWidth
+    },
+    //
+    // [theme.breakpoints.down('sm')]: {
+    //   fill: 'red',
+    // },
+  })
 }));
 
-const DrowIcon = () => {
-  const classes = useStyles();
+const DrowIcon = ({ color, width, height, strokeWidth }) => {
+  const classes = useStyles({ color, width, height, strokeWidth });
 
   return (
 		<SvgIcon viewBox="0 0 20 20" htmlColor="none" className={classes.svg}>

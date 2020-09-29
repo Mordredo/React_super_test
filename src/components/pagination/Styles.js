@@ -12,6 +12,4 @@ const useStyles = makeStyles(({
   }
 }));
 
-const PaginationStyles = () => useStyles();
-
-export default PaginationStyles;
+export default useStyles;
