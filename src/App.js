@@ -5,7 +5,7 @@ import {ThemeProvider, Container} from '@material-ui/core';
 import Header from './components/header/Header';
 import Blog from './components/blog/Blog';
 
-import CustomTheme from './Theme';
+import CustomTheme from './theme/Theme';
 
 const theme = CustomTheme;
 

@@ -36,7 +36,7 @@ function TableBlock(params) {
         </TableHead>
         <TableBody>
             {
-              newList.slice(params.curPage, params.pageList).map((tableElem) => (
+              newList.map((tableElem) => (
                 <TableElem key={tableElem.id} param={tableElem} />
               ))
             }

@@ -1,9 +1,9 @@
 import {makeStyles} from '@material-ui/core';
 
-const useStyles = makeStyles(({
+const useStyles = makeStyles( (theme) => ({
   fullHeight: {
     minHeight: '100vh',
-    marginTop: '8rem'
+    marginTop: theme.spacing(10)
   }
 }));
 

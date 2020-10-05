@@ -1,9 +1,11 @@
 import {makeStyles} from '@material-ui/core';
 
+
+
 export default makeStyles( (theme) => ({
   menuList: {
     padding: theme.spacing(9),
-    backgroundColor: '#E5E5E5',
+    backgroundColor: theme.palette.navBg.main,
     height: '100%'
   },
   menuItem: {

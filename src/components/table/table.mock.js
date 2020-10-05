@@ -4,18 +4,9 @@ import StatsDown from '../../icons/StatsDown';
 
 const tableData = {
   statusData : {
-    published : {
-      status: 'Published',
-      response: 'success-status'
-    },
-    draft : {
-      status: 'Draft',
-      response: 'error-status'
-    },
-    scheduled: {
-      status: 'Scheduled',
-      response: 'warning-status'
-    }
+    Published: 'success-status',
+    Draft: 'error-status',
+    Scheduled: 'warning-status'
   },
   viewData: {
     'up': <StatsUp />,

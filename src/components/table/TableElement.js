@@ -3,42 +3,43 @@ import {TableCell, TableRow, Typography, Menu, MenuItem, Grid, Fade} from '@mate
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 import TableStyles from './Styles';
-import TableData from './StatusData';
+import TableData from './table.mock';
+import * as statuses from '../../constants/statuses';
+import * as viewStatusConst from '../../constants/viewDataStatus';
 
 const DetectStatus = (status) => {
-  switch (status) {
-    case TableData.statusData.published.status:
-      return TableData.statusData.published.response;
-    case TableData.statusData.draft.status:
-      return TableData.statusData.draft.response;
-    case TableData.statusData.scheduled.status:
-      return TableData.statusData.scheduled.response;
-    default:
+  if(status !== undefined){
+    return status
+  }else{
+    console.error('Status element undefined');
   }
 };
 
-const statusImg = new Proxy(TableData.viewData, {
-  get(target, prop) {
-    if (prop in target) {
-      return target[prop];
-    } else {
-      return '';
-    }
+const DetectViews = (viewStatus) => {
+  if(viewStatusConst[viewStatus] !== undefined){
+    return TableData.viewData[viewStatus]
+  }else{
+    return '';
   }
-});
+};
+
+const newStatus = DetectStatus(statuses);
+
+const statusImg = (f) => {
+  return new Proxy(f, {
+    apply(target, thisArg, args) {
+      return target.apply(thisArg, args);
+    }
+  });
+};
 
 function TableElem(tableElem) {
   const classes = TableStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const status = newStatus[tableElem.param.status];
+  const handleClick = () => {};
+  const handleClose = () => {};
+  const newFun = statusImg(DetectViews);
+  const viewStatus = newFun(tableElem.param.viewsStatus);
 
   return (
     <TableRow className={classes.tableRow} >
@@ -49,7 +50,7 @@ function TableElem(tableElem) {
         </Grid>
       </TableCell>
       <TableCell className={classes.tableBodyCell}>
-        <Grid container alignItems="center" justify="center" className={`${DetectStatus(tableElem.param.status)} ${classes.tableStatus}`}>
+        <Grid container alignItems="center" justify="center" className={` ${TableData.statusData[status]} ${classes.tableStatus}`}>
           <Typography variant="subtitle1">{tableElem.param.status}</Typography>
         </Grid>
       </TableCell>
@@ -57,13 +58,13 @@ function TableElem(tableElem) {
         <Grid container alignItems="center">
           <Typography variant="body2" className={classes.tableStatsNum} color="primary">{tableElem.param.views}</Typography>
           <Typography variant="body2" className={classes.tableStatsText} color="textSecondary" >views</Typography>
-          {statusImg[tableElem.param.viewsStatus]}
+          {viewStatus}
         </Grid>
       </TableCell>
       <TableCell className={classes.tableBodyCell}>
         <Grid container alignItems="center" justify="flex-end">
           <MoreHorizIcon aria-controls="fade-menu" aria-haspopup="true" color="primary" onClick={handleClick}/>
-          <Menu id="fade-menu" anchorEl={anchorEl} keepMounted open={open} onClose={handleClose} TransitionComponent={Fade}>
+          <Menu id="fade-menu" keepMounted onClose={handleClose} TransitionComponent={Fade}>
             <MenuItem onClick={handleClose}>Profile</MenuItem>
             <MenuItem onClick={handleClose}>My account</MenuItem>
             <MenuItem onClick={handleClose}>Logout</MenuItem>

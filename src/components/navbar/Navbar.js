@@ -1,9 +1,8 @@
 import React from 'react';
 import {Typography, MenuList, MenuItem} from '@material-ui/core';
 
-
 import NavbarStyles from './Styles';
-import menuContent from './NavbarData';
+import menuContent from './navbar.mock';
 
 function NavbarMenu() {
   const classes = NavbarStyles();
@@ -11,7 +10,7 @@ function NavbarMenu() {
   const featuresType = 'features';
 
   return (
-		<MenuList className={classes.menuList}>
+    <MenuList className={classes.menuList}>
 			<Typography variant="h6" className={classes.menuTitle} color="textPrimary">Manage</Typography>
 			{
         menuContent.map((menuItem) => {
