@@ -7,7 +7,7 @@ import avatar from '../../images/avatar.png';
 import logo from '../../images/logo.svg';
 import HeaderStyles from './Styles';
 
-function Header() {
+const Header = () => {
   const classes = HeaderStyles();
 
   return (
@@ -23,6 +23,6 @@ function Header() {
 			</Grid>
 		</AppBar>
   );
-}
+};
 
 export default Header;

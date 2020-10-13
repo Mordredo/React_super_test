@@ -1,14 +1,14 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import TableBlock from '../../components/table/Table';
-import NavbarMenu from '../../components/navbar/Navbar';
-import PaginationControlled from '../../components/pagination/Pagination';
+import TableBlock from '../table/Table';
+import NavbarMenu from '../navbar/Navbar';
+import PaginationControlled from '../pagination/Pagination';
 
 import AppStyles from '../../AppStyles';
 import infoList from './blog.mock';
 
-function Blog() {
+const Blog = () => {
   const classes = AppStyles();
 
   return (
@@ -22,6 +22,6 @@ function Blog() {
         </Grid>
       </Grid>
   );
-}
+};
 
 export default Blog;

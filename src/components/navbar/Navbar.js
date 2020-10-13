@@ -4,7 +4,7 @@ import {Typography, MenuList, MenuItem} from '@material-ui/core';
 import NavbarStyles from './Styles';
 import menuContent from './navbar.mock';
 
-function NavbarMenu() {
+const NavbarMenu = () => {
   const classes = NavbarStyles();
   const manageType = 'manage';
   const featuresType = 'features';
@@ -22,7 +22,7 @@ function NavbarMenu() {
 							</MenuItem>
 				    );
 				  }
-				})
+        })
 			}
 			<Typography variant="h6" className={classes.menuTitle} color="textPrimary">Pro features</Typography>
 			{
@@ -35,10 +35,10 @@ function NavbarMenu() {
 							</MenuItem>
 				    );
 				  }
-				})
+        })
 			}
 		</MenuList>
   );
-}
+};
 
 export default NavbarMenu;

@@ -1,46 +1,35 @@
 import React from 'react';
-import {TableCell, TableRow, Typography, Menu, MenuItem, Grid, Fade} from '@material-ui/core';
+import {
+  TableCell, TableRow, Typography, Grid
+} from '@material-ui/core';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 import TableStyles from './Styles';
 import TableData from './table.mock';
-import * as statuses from '../../constants/statuses';
 import * as viewStatusConst from '../../constants/viewDataStatus';
-
-const DetectStatus = (status) => {
-  if(status !== undefined){
-    return status
-  }else{
-    console.error('Status element undefined');
-  }
-};
+import * as statuses from '../../enums/statusFormat';
 
 const DetectViews = (viewStatus) => {
-  if(viewStatusConst[viewStatus] !== undefined){
-    return TableData.viewData[viewStatus]
-  }else{
-    return '';
+  if (viewStatusConst[viewStatus] !== undefined) {
+    return TableData.viewData[viewStatus];
   }
+  return '';
 };
 
-const newStatus = DetectStatus(statuses);
+const statusImg = (f) => new Proxy(f, {
+  apply(target, thisArg, args) {
+    return target.apply(thisArg, args);
+  }
+});
 
-const statusImg = (f) => {
-  return new Proxy(f, {
-    apply(target, thisArg, args) {
-      return target.apply(thisArg, args);
-    }
-  });
-};
-
-function TableElem(tableElem) {
+const TableElem = (tableElem) => {
   const classes = TableStyles();
-  const status = newStatus[tableElem.param.status];
-  const handleClick = () => {};
-  const handleClose = () => {};
+  // const handleClick = () => {};
+  // const handleClose = () => {};
   const newFun = statusImg(DetectViews);
   const viewStatus = newFun(tableElem.param.viewsStatus);
-
+  const status = tableElem.param.status;
+  console.log();
   return (
     <TableRow className={classes.tableRow} >
       <TableCell className={classes.tableBodyCell}>
@@ -50,7 +39,7 @@ function TableElem(tableElem) {
         </Grid>
       </TableCell>
       <TableCell className={classes.tableBodyCell}>
-        <Grid container alignItems="center" justify="center" className={` ${TableData.statusData[status]} ${classes.tableStatus}`}>
+        <Grid container alignItems="center" justify="center" className={` ${statuses.statusNew[status]}  ${classes.tableStatus}`}>
           <Typography variant="subtitle1">{tableElem.param.status}</Typography>
         </Grid>
       </TableCell>
@@ -63,16 +52,16 @@ function TableElem(tableElem) {
       </TableCell>
       <TableCell className={classes.tableBodyCell}>
         <Grid container alignItems="center" justify="flex-end">
-          <MoreHorizIcon aria-controls="fade-menu" aria-haspopup="true" color="primary" onClick={handleClick}/>
-          <Menu id="fade-menu" keepMounted onClose={handleClose} TransitionComponent={Fade}>
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
-          </Menu>
+          <MoreHorizIcon aria-controls="fade-menu" aria-haspopup="true" color="primary"/>
+          {/* <Menu id="fade-menu" keepMounted onClose={handleClose} TransitionComponent={Fade}> */}
+            {/* <MenuItem onClick={handleClose}>Profile</MenuItem> */}
+            {/* <MenuItem onClick={handleClose}>My account</MenuItem> */}
+            {/* <MenuItem onClick={handleClose}>Logout</MenuItem> */}
+          {/* </Menu> */}
         </Grid>
       </TableCell>
     </TableRow>
   );
-}
+};
 
 export default TableElem;
