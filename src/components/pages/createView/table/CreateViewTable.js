@@ -3,11 +3,11 @@ import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button, Typography, Grid
 } from '@material-ui/core';
 
-import DrowIcon from '../../icons/DrowIcon';
-import TableStyles from './Styles';
-import TableElem from './TableElement';
+import AddNewIcon from '../../../../icons/AddNewIcon';
+import TableStyles from '../../tableAllStyles';
+import TableElem from './CreateViewTableElement';
 
-function TableBlock(params) {
+const TableBlock = (params) => {
   const [newList] = React.useState(params.content);
   const classes = TableStyles();
 
@@ -17,33 +17,36 @@ function TableBlock(params) {
         <TableHead>
           <TableRow>
             <TableCell className={classes.tableCellHead}>
-              <Typography variant="subtitle1" className={classes.tableHeadTitle}>Title</Typography>
+              <Typography variant="subtitle1" className={classes.tableHeadTitle}>Page title</Typography>
+            </TableCell>
+            <TableCell className={classes.tableCellHead}>
+              <Typography variant="subtitle1" className={classes.tableHeadTitle}>Created</Typography>
             </TableCell>
             <TableCell className={classes.tableCellHead}>
               <Typography variant="subtitle1" className={classes.tableHeadTitle}>Status</Typography>
             </TableCell>
             <TableCell className={classes.tableCellHead}>
-              <Typography variant="subtitle1" className={classes.tableHeadTitle}>Stats</Typography>
+              <Typography variant="subtitle1" className={classes.tableHeadTitle}>Author</Typography>
             </TableCell>
             <TableCell className={classes.tableCellHead}>
                 <Grid container alignItems="center" justify="flex-end">
-					        <Button variant="contained" color="primary" className={classes.tableBtn} startIcon={<DrowIcon color={'#FFFCFE'} width={'2rem'} height={'2rem'} />}>
-					        	Add new
+					        <Button variant="contained" color="primary" className={classes.tableBtn} startIcon={<AddNewIcon color={'#FFFCFE'} width={'2rem'} height={'2rem'} />}>
+                    Add new
 					        </Button>
                 </Grid>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-            {
-              newList.map((tableElem) => (
-                <TableElem key={tableElem.id} param={tableElem} />
-              ))
-            }
+          {
+            newList.map((tableElem) => (
+              <TableElem key={tableElem.id} param={tableElem} />
+            ))
+          }
         </TableBody>
       </Table>
     </TableContainer>
   );
-}
+};
 
 export default TableBlock;

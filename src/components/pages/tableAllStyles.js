@@ -1,35 +1,35 @@
 import {makeStyles} from '@material-ui/core';
 
-const useStyles = makeStyles( (theme) => ({
+const useStyles = makeStyles((theme) => ({
   table: {
-    padding: theme.spacing(0,5,6,6),
+    padding: theme.spacing(0, 5, 6, 6),
     borderCollapse: 'separate',
-    borderSpacing: theme.spacing(0,2),
+    borderSpacing: theme.spacing(0, 2)
   },
   tableBodyCell: {
-    padding: theme.spacing(4,0),
-    '&:last-of-type':{
+    padding: theme.spacing(4, 0),
+    '&:last-of-type': {
       paddingRight: theme.spacing(6)
     },
-    '&:first-of-type':{
-      paddingLeft:  theme.spacing(4),
+    '&:first-of-type': {
+      paddingLeft: theme.spacing(4),
       width: '45%'
     }
   },
   tableCellHead: {
-    padding: theme.spacing(2,0),
+    padding: theme.spacing(2, 0)
   },
   tableHeadTitle: {
-    color: '#2C5282',
+    color: theme.palette.secondary.main,
     fontWeight: 'bold'
   },
   tableRow: {
-    backgroundColor: '#F7FAFC',
-    margin: theme.spacing(1,0),
+    backgroundColor: theme.palette.tableRowBg.main,
+    margin: theme.spacing(1, 0),
     border: 'none',
     '& > *': {
       borderBottom: 'unset',
-      margin: theme.spacing(1,0),
+      margin: theme.spacing(1, 0)
     }
   },
   tableStatus: {
@@ -37,15 +37,15 @@ const useStyles = makeStyles( (theme) => ({
     height: '3.2rem',
     borderRadius: '5rem',
     '&.error-status': {
-      border: '0.2rem solid ' + theme.palette.error.main,
+      border: `0.2rem solid ${theme.palette.error.main}`,
       color: theme.palette.error.main
     },
     '&.warning-status': {
-      border: '0.2rem solid ' + theme.palette.warning.main ,
+      border: `0.2rem solid ${theme.palette.warning.main}`,
       color: theme.palette.warning.main
     },
     '&.success-status': {
-      border: '0.2rem solid ' + theme.palette.success.main,
+      border: `0.2rem solid ${theme.palette.success.main}`,
       color: theme.palette.success.main
     }
   },
@@ -55,7 +55,7 @@ const useStyles = makeStyles( (theme) => ({
     fontWeight: 'bold'
   },
   tableStatsText: {
-    margin: theme.spacing(0,1)
+    margin: theme.spacing(0, 1)
   },
   tableTitle: {
     fontWeight: 'bold',
@@ -71,7 +71,7 @@ const useStyles = makeStyles( (theme) => ({
     }
   },
   tableBtnImg: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   }
 }));
 

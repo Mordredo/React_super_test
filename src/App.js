@@ -1,9 +1,9 @@
 import React from 'react';
 import {ThemeProvider, Container} from '@material-ui/core';
-
+import {BrowserRouter as Router} from 'react-router-dom';
 
 import Header from './components/header/Header';
-import Blog from './components/blog/Blog';
+import Pages from './components/pages/Pages';
 
 import CustomTheme from './theme/Theme';
 
@@ -14,7 +14,9 @@ function App() {
     <ThemeProvider theme={theme}>
 			<Container maxWidth={false} disableGutters={true}>
         <Header/>
-        <Blog/>
+        <Router>
+          <Pages/>
+        </Router>
 			</Container>
     </ThemeProvider>
   );

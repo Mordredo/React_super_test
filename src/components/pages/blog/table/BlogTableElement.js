@@ -4,32 +4,19 @@ import {
 } from '@material-ui/core';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
-import TableStyles from './Styles';
-import TableData from './table.mock';
-import * as viewStatusConst from '../../constants/viewDataStatus';
-import * as statuses from '../../enums/statusFormat';
-
-const DetectViews = (viewStatus) => {
-  if (viewStatusConst[viewStatus] !== undefined) {
-    return TableData.viewData[viewStatus];
-  }
-  return '';
-};
-
-const statusImg = (f) => new Proxy(f, {
-  apply(target, thisArg, args) {
-    return target.apply(thisArg, args);
-  }
-});
+import TableStyles from '../../tableAllStyles';
+import TableData from '../../table.mock';
+import * as viewStatusConst from '../../../../constants/viewDataStatus';
+import statusViewDetect from '../../../../enums/statusView';
+import statusDetect from '../../../../enums/statusFormat';
 
 const TableElem = (tableElem) => {
   const classes = TableStyles();
-  // const handleClick = () => {};
-  // const handleClose = () => {};
-  const newFun = statusImg(DetectViews);
-  const viewStatus = newFun(tableElem.param.viewsStatus);
-  const status = tableElem.param.status;
-  console.log();
+  const viewStatus = statusViewDetect(tableElem.param.viewsStatus);
+  const status = statusDetect(tableElem.param.status);
+  // const status = tableElem.param.status;
+  // ${statuses.statusNew[status]}
+
   return (
     <TableRow className={classes.tableRow} >
       <TableCell className={classes.tableBodyCell}>
@@ -39,7 +26,7 @@ const TableElem = (tableElem) => {
         </Grid>
       </TableCell>
       <TableCell className={classes.tableBodyCell}>
-        <Grid container alignItems="center" justify="center" className={` ${statuses.statusNew[status]}  ${classes.tableStatus}`}>
+        <Grid container alignItems="center" justify="center" className={` ${status}  ${classes.tableStatus}`}>
           <Typography variant="subtitle1">{tableElem.param.status}</Typography>
         </Grid>
       </TableCell>
@@ -53,11 +40,6 @@ const TableElem = (tableElem) => {
       <TableCell className={classes.tableBodyCell}>
         <Grid container alignItems="center" justify="flex-end">
           <MoreHorizIcon aria-controls="fade-menu" aria-haspopup="true" color="primary"/>
-          {/* <Menu id="fade-menu" keepMounted onClose={handleClose} TransitionComponent={Fade}> */}
-            {/* <MenuItem onClick={handleClose}>Profile</MenuItem> */}
-            {/* <MenuItem onClick={handleClose}>My account</MenuItem> */}
-            {/* <MenuItem onClick={handleClose}>Logout</MenuItem> */}
-          {/* </Menu> */}
         </Grid>
       </TableCell>
     </TableRow>

@@ -1,8 +1,6 @@
 import {makeStyles} from '@material-ui/core';
 
-
-
-export default makeStyles( (theme) => ({
+export default makeStyles((theme) => ({
   menuList: {
     padding: theme.spacing(9),
     backgroundColor: theme.palette.navBg.main,
@@ -12,10 +10,18 @@ export default makeStyles( (theme) => ({
     marginBottom: theme.spacing(3),
     '&:hover': {
       backgroundColor: 'transparent'
+    },
+    '& > a': {
+      textDecoration: 'none'
+    }
+  },
+  navLink: {
+    '&.selected > *': {
+      fontWeight: 'bold'
     }
   },
   menuTitle: {
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(3)
   },
   menuText: {
     marginLeft: theme.spacing(2),
@@ -25,4 +31,3 @@ export default makeStyles( (theme) => ({
     }
   }
 }));
-

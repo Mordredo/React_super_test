@@ -3,14 +3,14 @@ import StatsUp from '../../icons/StatsUp';
 import StatsDown from '../../icons/StatsDown';
 
 const tableData = {
-  statusData : {
+  statusData: {
     Published: 'success-status',
     Draft: 'error-status',
     Scheduled: 'warning-status'
   },
   viewData: {
-    'up': <StatsUp />,
-    'down': <StatsDown />
+    up: <StatsUp />,
+    down: <StatsDown />
   }
 };
 

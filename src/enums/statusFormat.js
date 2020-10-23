@@ -1,5 +1,20 @@
-import createEnum from './createEnum';
+// import createEnum from './createEnum';
+//
+// import TableData from '../components/pages/table.mock';
+//
+// export const statusNew = createEnum(TableData.statusData);
 
-import TableData from '../components/table/table.mock';
+import * as statuses from '../constants/statuses';
+import TableData from '../components/pages/table.mock';
+import proxy from './createProxy';
 
-export const statusNew = createEnum(TableData.statusData);
+const DetectStatus = (viewStatus) => {
+  if (statuses[viewStatus] !== undefined) {
+    return TableData.statusData[viewStatus];
+  }
+  return '';
+};
+
+const newFun = proxy(DetectStatus);
+
+export default newFun;

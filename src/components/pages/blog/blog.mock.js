@@ -38,6 +38,46 @@ const infoList = [
     status: 'Published',
     views: '35',
     viewsStatus: 'up'
+  },
+  {
+    id: 6,
+    title: 'Design: A Survival Guide for Beginners6',
+    subtitle: 'Posted 7 days ago',
+    status: 'Published',
+    views: '35',
+    viewsStatus: 'up'
+  },
+  {
+    id: 7,
+    title: 'Design: A Survival Guide for Beginners7',
+    subtitle: 'Posted 7 days ago',
+    status: 'Published',
+    views: '35',
+    viewsStatus: 'up'
+  },
+  {
+    id: 8,
+    title: 'Design: A Survival Guide for Beginners8',
+    subtitle: 'Posted 7 days ago',
+    status: 'Published',
+    views: '35',
+    viewsStatus: 'up'
+  },
+  {
+    id: 9,
+    title: 'Design: A Survival Guide for Beginners9',
+    subtitle: 'Posted 7 days ago',
+    status: 'Published',
+    views: '35',
+    viewsStatus: 'up'
+  },
+  {
+    id: 10,
+    title: 'Design: A Survival Guide for Beginners10',
+    subtitle: 'Posted 7 days ago',
+    status: 'Published',
+    views: '35',
+    viewsStatus: 'up'
   }
 ];
 

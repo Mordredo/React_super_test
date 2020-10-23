@@ -12,21 +12,24 @@ const palette = {
     secondary: '#A0AEC0',
     primary: '#4299E1'
   },
-  error:{
+  error: {
     main: '#FC8181'
   },
-  success:{
+  success: {
     main: '#9AE6B4'
   },
-  warning:{
+  warning: {
     main: '#FBD38D'
   },
-  navBg:{
+  navBg: {
     main: '#E5E5E5'
   },
-  headerBtnBg : {
+  headerBtnBg: {
     main: '#D53F8C',
     light: '#ED64A6'
+  },
+  tableRowBg: {
+    main: '#F7FAFC'
   }
 };
 
