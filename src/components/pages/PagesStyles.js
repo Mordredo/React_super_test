@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     },
     '&:first-of-type': {
       paddingLeft: theme.spacing(4),
-      width: '45%'
+      width: (props) => (props.bodyCellWidth ? props.bodyCellWidth : 'auto')
     }
   },
   tableCellHead: {
@@ -36,17 +36,21 @@ const useStyles = makeStyles((theme) => ({
     width: '12rem',
     height: '3.2rem',
     borderRadius: '5rem',
+    color: (props) => props.statusColor,
     '&.error-status': {
-      border: `0.2rem solid ${theme.palette.error.main}`,
-      color: theme.palette.error.main
+      border: (props) => (props.errorColor ? `0.2rem solid ${props.errorColor}` : 'none'),
+      color: (props) => (props.errorColor ? props.errorColor : 'none'),
+      backgroundColor: (props) => (props.errorBg ? props.errorBg : 'transparent')
     },
     '&.warning-status': {
-      border: `0.2rem solid ${theme.palette.warning.main}`,
-      color: theme.palette.warning.main
+      color: (props) => (props.warningColor ? props.warningColor : 'none'),
+      border: (props) => (props.warningColor ? `0.2rem solid ${props.warningColor}` : 'none'),
+      backgroundColor: (props) => (props.warningBg ? props.warningBg : 'transparent')
     },
     '&.success-status': {
-      border: `0.2rem solid ${theme.palette.success.main}`,
-      color: theme.palette.success.main
+      border: (props) => (props.successColor ? `0.2rem solid ${props.successColor}` : 'none'),
+      color: (props) => (props.successColor ? props.successColor : 'none'),
+      backgroundColor: (props) => props.successBg
     }
   },
   tableStatsNum: {
@@ -72,6 +76,10 @@ const useStyles = makeStyles((theme) => ({
   },
   tableBtnImg: {
     marginRight: theme.spacing(2)
+  },
+  tableBodyAuthor: {
+    fontWeight: 'bold',
+    marginLeft: theme.spacing(3)
   }
 }));
 

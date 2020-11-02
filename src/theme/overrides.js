@@ -1,5 +1,4 @@
 const overrides = {
-
   MuiButton: {
     root: {
       fontSize: '1.6rem',

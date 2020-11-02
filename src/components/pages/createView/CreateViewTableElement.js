@@ -4,17 +4,18 @@ import {
 } from '@material-ui/core';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
-import TableStyles from '../../tableAllStyles';
+import TableStyles from '../PagesStyles';
 import viewsStyles from './Styles';
-import statusDetect from '../../../../enums/statusFormat';
+
+import statusDetect from '../../../enums/statusFormat';
 
 const TableElem = (tableElem) => {
-  const classes = Object.assign(TableStyles(), viewsStyles());
+  const classes = TableStyles(viewsStyles);
   const status = statusDetect(tableElem.param.status);
 
   return (
     <TableRow className={classes.tableRow} >
-      <TableCell className={`${classes.tableBodyViewCell} ${classes.tableBodyCell}`}>
+      <TableCell className={classes.tableBodyCell}>
         <Grid container >
           <Typography variant="body1" className={classes.tableTitle} color="primary">{tableElem.param.title}</Typography>
         </Grid>

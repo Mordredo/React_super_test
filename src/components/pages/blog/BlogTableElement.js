@@ -4,18 +4,19 @@ import {
 } from '@material-ui/core';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
-import TableStyles from '../../tableAllStyles';
-import TableData from '../../table.mock';
-import * as viewStatusConst from '../../../../constants/viewDataStatus';
-import statusViewDetect from '../../../../enums/statusView';
-import statusDetect from '../../../../enums/statusFormat';
+import * as viewStatusConst from '../../../constants/viewDataStatus';
+import statusViewDetect from '../../../enums/statusView';
+import statusDetect from '../../../enums/statusFormat';
+
+import TableStyles from '../PagesStyles';
+import blogStyles from './Styles';
+
+import TableData from '../table/table.mock';
 
 const TableElem = (tableElem) => {
-  const classes = TableStyles();
+  const classes = TableStyles(blogStyles);
   const viewStatus = statusViewDetect(tableElem.param.viewsStatus);
   const status = statusDetect(tableElem.param.status);
-  // const status = tableElem.param.status;
-  // ${statuses.statusNew[status]}
 
   return (
     <TableRow className={classes.tableRow} >
@@ -26,7 +27,7 @@ const TableElem = (tableElem) => {
         </Grid>
       </TableCell>
       <TableCell className={classes.tableBodyCell}>
-        <Grid container alignItems="center" justify="center" className={` ${status}  ${classes.tableStatus}`}>
+        <Grid container alignItems="center" justify="center" className={` ${status} ${classes.tableStatus}`}>
           <Typography variant="subtitle1">{tableElem.param.status}</Typography>
         </Grid>
       </TableCell>

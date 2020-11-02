@@ -18,9 +18,6 @@ const Pages = () => {
       </Grid>
       <Grid item xs={10}>
         <Switch>
-          <Route exact path="/">
-            <Redirect to="/blog/page=1" />
-          </Route>
           <Route path="/blog">
             <Blog/>
           </Route>

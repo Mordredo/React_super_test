@@ -1,6 +1,6 @@
 import React from 'react';
-import StatsUp from '../../icons/StatsUp';
-import StatsDown from '../../icons/StatsDown';
+import StatsUp from '../../../icons/StatsUp';
+import StatsDown from '../../../icons/StatsDown';
 
 const tableData = {
   statusData: {
