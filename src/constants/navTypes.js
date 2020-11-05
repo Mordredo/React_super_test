@@ -1,2 +1,2 @@
-export const manageType = 'manage';
-export const featuresType = 'features';
+export const manageType = "manage";
+export const featuresType = "features";

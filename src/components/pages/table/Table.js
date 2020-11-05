@@ -1,28 +1,32 @@
-import React from 'react';
-import {Table, TableBody, TableContainer} from '@material-ui/core';
-import {useParams} from 'react-router-dom';
+import React from "react";
+import { Table, TableBody, TableContainer } from "@material-ui/core";
+import { useLocation } from "react-router-dom";
 
-import TableStyles from '../PagesStyles';
+import TableStyles from "../PagesStyles";
 
-import TableHeadComp from './TableHead';
+import TableHeadComp from "./TableHead";
+
+const useQuery = () => new URLSearchParams(useLocation().search);
 
 const TableBlock = (params) => {
-  const [newList] = React.useState(params.content);
   const classes = TableStyles();
-  const tableCount = 5;
-  const curTable = useParams().id;
-  const slicedList = newList.filter((elem, index) => curTable * tableCount > index && index >= (curTable - 1) * tableCount);
+  const query = useQuery();
+  const curPage = query.get("page");
 
   return (
     <TableContainer>
       <Table className={classes.table}>
-      <TableHeadComp headTitle={params.headTitle} headBtnImg={params.headBtnImg} />
+        <TableHeadComp
+          headTitle={params.headTitle}
+          headBtnImg={params.headBtnImg}
+        />
         <TableBody>
-           {
-            slicedList.map((newTableElem) => (
-              <params.element key={newTableElem.id} param={newTableElem}/>
-            ))
-           }
+          {Array.from({ length: 5 }).map((_, index) => (
+            <params.element
+              key={params.content[(+curPage - 1) * 5 + index].id}
+              param={params.content[(+curPage - 1) * 5 + index]}
+            />
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

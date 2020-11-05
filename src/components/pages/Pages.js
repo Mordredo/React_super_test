@@ -1,28 +1,33 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import {Switch, Route, Redirect} from 'react-router-dom';
+import React from "react";
+import Grid from "@material-ui/core/Grid";
+import { Switch, Route, Redirect } from "react-router-dom";
 
-import Blog from './blog/Blog';
-import CreateView from './createView/CreateView';
-import NavbarMenu from '../navbar/Navbar';
+import Blog from "./blog/Blog";
+import CreateView from "./createView/CreateView";
+import NavbarMenu from "../navbar/Navbar";
 
-import AppStyles from '../../AppStyles';
+import AppStyles from "../../AppStyles";
 
 const Pages = () => {
   const classes = AppStyles();
 
   return (
-    <Grid container justify="center" alignItems="stretch" className={classes.fullHeight}>
+    <Grid
+      container
+      justify="center"
+      alignItems="stretch"
+      className={classes.fullHeight}
+    >
       <Grid item xs={2}>
-        <NavbarMenu/>
+        <NavbarMenu />
       </Grid>
       <Grid item xs={10}>
         <Switch>
           <Route path="/blog">
-            <Blog/>
+            <Blog />
           </Route>
           <Route path="/createView">
-            <CreateView/>
+            <CreateView />
           </Route>
         </Switch>
       </Grid>
