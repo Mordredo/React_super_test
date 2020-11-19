@@ -2,19 +2,17 @@ import React from "react";
 import { TableCell, TableRow, Typography, Grid } from "@material-ui/core";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
-import * as viewStatusConst from "../../../constants/viewDataStatus";
 import statusViewDetect from "../../../enums/statusView";
 import statusDetect from "../../../enums/statusFormat";
 
-import TableStyles from "../PagesStyles";
+import useTableStyles from "../PagesStyles";
 import blogStyles from "./Styles";
 
-import TableData from "../table/table.mock";
+const TableElem = (elem) => {
+  const classes = useTableStyles(blogStyles);
+  const viewStatus = statusViewDetect(elem.param.viewsStatus);
+  const status = statusDetect(elem.param.status);
 
-const TableElem = (tableElem) => {
-  const classes = TableStyles(blogStyles);
-  const viewStatus = statusViewDetect(tableElem.param.viewsStatus);
-  const status = statusDetect(tableElem.param.status);
   return (
     <TableRow className={classes.tableRow}>
       <TableCell className={classes.tableBodyCell}>
@@ -24,10 +22,10 @@ const TableElem = (tableElem) => {
             className={classes.tableTitle}
             color="primary"
           >
-            {tableElem.param.title}
+            {elem.param.title}
           </Typography>
           <Typography variant="body2" color="textSecondary">
-            {tableElem.param.subtitle}
+            {elem.param.subtitle}
           </Typography>
         </Grid>
       </TableCell>
@@ -38,7 +36,7 @@ const TableElem = (tableElem) => {
           justify="center"
           className={` ${status} ${classes.tableStatus}`}
         >
-          <Typography variant="subtitle1">{tableElem.param.status}</Typography>
+          <Typography variant="subtitle1">{elem.param.status}</Typography>
         </Grid>
       </TableCell>
       <TableCell className={classes.tableBodyCell}>
@@ -48,7 +46,7 @@ const TableElem = (tableElem) => {
             className={classes.tableStatsNum}
             color="primary"
           >
-            {tableElem.param.views}
+            {elem.param.views}
           </Typography>
           <Typography
             variant="body2"
@@ -62,11 +60,7 @@ const TableElem = (tableElem) => {
       </TableCell>
       <TableCell className={classes.tableBodyCell}>
         <Grid container alignItems="center" justify="flex-end">
-          <MoreHorizIcon
-            aria-controls="fade-menu"
-            aria-haspopup="true"
-            color="primary"
-          />
+          <MoreHorizIcon color="primary" />
         </Grid>
       </TableCell>
     </TableRow>

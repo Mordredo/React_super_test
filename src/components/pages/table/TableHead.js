@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Button,
   Grid,
   TableCell,
   TableHead,
@@ -9,6 +8,7 @@ import {
 } from "@material-ui/core";
 
 import TableStyles from "../PagesStyles";
+import ButtonItem from "../../multiple/Button";
 
 const TableHeadComp = (params) => {
   const classes = TableStyles();
@@ -25,20 +25,17 @@ const TableHeadComp = (params) => {
         ))}
         <TableCell className={classes.tableCellHead}>
           <Grid container alignItems="center" justify="flex-end">
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.tableBtn}
-              startIcon={
+            <ButtonItem
+              text="Add new"
+              styles={classes.tableBtn}
+              icon={
                 <params.headBtnImg
                   color={"#FFFCFE"}
                   width={"2rem"}
                   height={"2rem"}
                 />
               }
-            >
-              Add new
-            </Button>
+            ></ButtonItem>
           </Grid>
         </TableCell>
       </TableRow>

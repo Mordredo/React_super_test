@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "1.8rem",
     width: "8.2rem",
     height: "3.2rem",
+    whiteSpace: "nowrap",
     marginRight: theme.spacing(4),
     "&:hover": {
       backgroundColor: theme.palette.headerBtnBg.light,

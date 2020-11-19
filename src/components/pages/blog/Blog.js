@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import TableBlock from "../table/Table";
 import PaginationControlled from "../../pagination/Pagination";
@@ -13,7 +13,7 @@ import headTableContent from "../table/tableHead.mock";
 const Blog = () => {
   const paginationCount = Math.ceil(Object.keys(infoList).length / 5);
   const headTitles = headTableContent.tableHeadTitle.blogTitles;
-  const path = useRouteMatch();
+  const path = useLocation();
 
   return (
     <Box>

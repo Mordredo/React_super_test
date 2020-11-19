@@ -1,6 +1,5 @@
 import React from "react";
-import { Typography, MenuList, MenuItem } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
+import { Typography, MenuList } from "@material-ui/core";
 
 import NavbarStyles from "./Styles";
 import * as types from "../../constants/navTypes";

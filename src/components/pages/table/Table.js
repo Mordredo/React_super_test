@@ -11,7 +11,7 @@ const useQuery = () => new URLSearchParams(useLocation().search);
 const TableBlock = (params) => {
   const classes = TableStyles();
   const query = useQuery();
-  const curPage = query.get("page");
+  const curPage = query.get("page") == null ? 1 : query.get("page");
 
   return (
     <TableContainer>

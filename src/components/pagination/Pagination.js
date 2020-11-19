@@ -13,15 +13,15 @@ const PaginationControlled = (params) => {
       <Grid container justify="center">
         <Pagination
           count={params.count}
-          hideNextButton={true}
-          hidePrevButton={true}
+          hideNextButton
+          hidePrevButton
           page={1}
           renderItem={(item) => (
             <PaginationItem
               className={classes.paginItem}
               classes={{ selected: classes.selected }}
               component={Link}
-              to={`${params.pagePath.path}?page=${item.page}`}
+              to={`${params.pagePath.pathname}?page=${item.page}`}
               {...item}
             />
           )}

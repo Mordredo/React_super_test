@@ -2,14 +2,14 @@ import React from "react";
 import { TableCell, TableRow, Typography, Grid, Chip } from "@material-ui/core";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
-import TableStyles from "../PagesStyles";
+import useTableStyles from "../PagesStyles";
 import viewsStyles from "./Styles";
 
 import statusDetect from "../../../enums/statusFormat";
 
-const TableElem = (tableElem) => {
-  const classes = TableStyles(viewsStyles);
-  const status = statusDetect(tableElem.param.status);
+const TableElem = (elem) => {
+  const classes = useTableStyles(viewsStyles);
+  const status = statusDetect(elem.param.status);
 
   return (
     <TableRow className={classes.tableRow}>
@@ -20,7 +20,7 @@ const TableElem = (tableElem) => {
             className={classes.tableTitle}
             color="primary"
           >
-            {tableElem.param.title}
+            {elem.param.title}
           </Typography>
         </Grid>
       </TableCell>
@@ -31,7 +31,7 @@ const TableElem = (tableElem) => {
             className={classes.tableText}
             color="primary"
           >
-            {tableElem.param.created}
+            {elem.param.created}
           </Typography>
         </Grid>
       </TableCell>
@@ -40,18 +40,18 @@ const TableElem = (tableElem) => {
           container
           alignItems="center"
           justify="center"
-          className={`${status} ${classes.tableStatus} ${classes.tableViewStatus}`}
+          className={`${status} ${classes.tableStatus}`}
         >
-          <Typography variant="subtitle1">{tableElem.param.status}</Typography>
+          <Typography variant="subtitle1">{elem.param.status}</Typography>
         </Grid>
       </TableCell>
       <TableCell className={classes.tableBodyCell}>
         <Grid container alignItems="center">
           <Typography variant="body2" color="primary">
-            {tableElem.param.author}
+            {elem.param.author}
           </Typography>
           <Chip
-            label={`${tableElem.param.authorStatus}`}
+            label={`${elem.param.authorStatus}`}
             className={classes.tableBodyAuthor}
             color="secondary"
           />

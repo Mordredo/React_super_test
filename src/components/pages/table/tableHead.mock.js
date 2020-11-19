@@ -1,5 +1,3 @@
-import React from "react";
-
 const tableHead = {
   tableHeadTitle: {
     blogTitles: ["Title", "Status", "Stats"],

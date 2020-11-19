@@ -4,7 +4,7 @@ import ViewIcon from "../../icons/ViewIcon";
 import CreateIcon from "../../icons/CreateIcon";
 import DrowIcon from "../../icons/DrowIcon";
 import FilesIcon from "../../icons/FilesIcon";
-import UserIcon from "../../icons/UserIcon";
+import UserIcon from "../../icons/UsersIcon";
 import SubIcon from "../../icons/SubIcon";
 import ArchiveIcon from "../../icons/ArchiveIcon";
 import ThemeIcon from "../../icons/ThemeIcon";
@@ -30,7 +30,7 @@ const menuContent = [
     id: 3,
     title: "Blog articles",
     type: "manage",
-    link: "blog",
+    link: "",
     img: (
       <DrowIcon
         color={"#2C5282"}

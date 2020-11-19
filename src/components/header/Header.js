@@ -1,9 +1,10 @@
 import React from "react";
-import { Button, Grid, Avatar, AppBar } from "@material-ui/core";
+import { Grid, Avatar, AppBar } from "@material-ui/core";
 
 import avatar from "../../images/avatar.png";
-import logo from "../../images/logo.svg";
 import HeaderStyles from "./Styles";
+import LogoIcon from "../../icons/LogoIcon";
+import ButtonItem from "../multiple/Button";
 
 const Header = () => {
   const classes = HeaderStyles();
@@ -12,12 +13,10 @@ const Header = () => {
     <AppBar position="fixed" color="primary">
       <Grid container>
         <Grid xs={6} container item justify="flex-start" alignItems="center">
-          <img src={logo} alt="logo" />
+          <LogoIcon />
         </Grid>
         <Grid xs={6} container item justify="flex-end" alignItems="center">
-          <Button size="medium" className={classes.headerBtn}>
-            Pro plan
-          </Button>
+          <ButtonItem text="Pro plan" styles={classes.headerBtn}></ButtonItem>
           <Avatar src={avatar} alt="avatar" className={classes.avatar} />
         </Grid>
       </Grid>

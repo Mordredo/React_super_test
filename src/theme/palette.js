@@ -31,6 +31,9 @@ const palette = {
   tableRowBg: {
     main: "#F7FAFC",
   },
+  lightBlue: {
+    main: "#3182CE",
+  },
 };
 
 export default palette;

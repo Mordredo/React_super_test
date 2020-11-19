@@ -1,37 +1,32 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Blog from "./blog/Blog";
 import CreateView from "./createView/CreateView";
-import NavbarMenu from "../navbar/Navbar";
+import Login from "./login/Login";
 
-import AppStyles from "../../AppStyles";
+import PageBlock from "./PageBlock";
 
 const Pages = () => {
-  const classes = AppStyles();
+  const token = sessionStorage.getItem("token");
 
   return (
-    <Grid
-      container
-      justify="center"
-      alignItems="stretch"
-      className={classes.fullHeight}
-    >
-      <Grid item xs={2}>
-        <NavbarMenu />
-      </Grid>
-      <Grid item xs={10}>
-        <Switch>
-          <Route path="/blog">
-            <Blog />
-          </Route>
-          <Route path="/createView">
-            <CreateView />
-          </Route>
-        </Switch>
-      </Grid>
-    </Grid>
+    <Switch>
+      <Route exact path="/createView">
+        <PageBlock page={CreateView} />
+      </Route>
+      <Route exact path="/login">
+        <Login />
+      </Route>
+      <Route exact path="/sign-in"></Route>
+      <Route exact path="/">
+        {token === undefined || token === null ? (
+          <Login />
+        ) : (
+          <PageBlock page={Blog} />
+        )}
+      </Route>
+    </Switch>
   );
 };
 

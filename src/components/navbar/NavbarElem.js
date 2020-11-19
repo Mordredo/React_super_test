@@ -16,9 +16,10 @@ const NavbarElem = (menuItem) => {
     >
       {item.img}
       <NavLink
-        to={`/${item.link}?page=1`}
+        to={`/${item.link}`}
         className={classes.navLink}
         activeClassName="selected"
+        exact
       >
         <Typography
           className={classes.menuText}

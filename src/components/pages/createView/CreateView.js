@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import { Route, Switch, useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 
 import TableBlock from "../table/Table";
 import ViewTableElement from "./CreateViewTableElement";
