@@ -1,33 +1,40 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Blog from "./blog/Blog";
-import CreateView from "./createView/CreateView";
 import Login from "./login/Login";
+import Registration from "./registration/Registration";
 
-import PageBlock from "./PageBlock";
+import PageWrapper from "./PageWrapper";
+import PublicRoute from "../../Routes/PublicRoute";
+import PrivateRoute from "../../Routes/PrivateRoute";
 
-const Pages = () => {
-  const token = sessionStorage.getItem("token");
+import routes from "../../Routes";
 
-  return (
-    <Switch>
-      <Route exact path="/createView">
-        <PageBlock page={CreateView} />
-      </Route>
-      <Route exact path="/login">
-        <Login />
-      </Route>
-      <Route exact path="/sign-in"></Route>
-      <Route exact path="/">
-        {token === undefined || token === null ? (
-          <Login />
-        ) : (
-          <PageBlock page={Blog} />
-        )}
-      </Route>
-    </Switch>
-  );
-};
+const Pages = () => (
+  <Switch>
+    {/* <Route */}
+    {/*  exact */}
+    {/*  path={[routes.public.login, routes.public.index]} */}
+    {/*  component={Login} */}
+    {/* /> */}
+    <Route
+      exact
+      path={[routes.public.registration, routes.public.index]}
+      component={Registration}
+    />
+    <Route
+      exact
+      path={[routes.private.blog, routes.private.index]}
+      component={PageWrapper}
+    />
+    {/* <PrivateRoute component={PageWrapper} /> */}
+
+    {/* <PublicRoute */}
+    {/*  exact */}
+    {/*  path={[routes.public.login, routes.public.index]} */}
+    {/*  component={Login} */}
+    {/* /> */}
+  </Switch>
+);
 
 export default Pages;

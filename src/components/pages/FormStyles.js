@@ -20,9 +20,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "2rem",
     color: theme.palette.primary.main,
     lineHeight: "2.3rem",
+    position: "relative",
+    transform: "inherit",
   },
   FormInputContainer: {
     position: "relative",
+    width: "100%",
   },
   FormInput: {
     backgroundColor: theme.palette.grey[200],
@@ -32,8 +35,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "2rem",
     paddingLeft: theme.spacing(2),
     color: theme.palette.primary.main,
+    border: "none",
   },
-  FormSignInBtn: {
+  FormSendBtn: {
     marginTop: theme.spacing(2),
     fontSize: "2rem",
     lineHeight: "2.3rem",
@@ -71,6 +75,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.error.main,
     bottom: "0.6rem",
     right: "0",
+  },
+  FormCheckbox: {
+    width: "100%",
+    position: "relative",
   },
 }));
 

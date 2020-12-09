@@ -1,31 +1,30 @@
 import React from "react";
-import { Grid, InputLabel, InputBase, Box } from "@material-ui/core";
+import {
+  InputLabel,
+  Input,
+  FormHelperText,
+  FormControl,
+} from "@material-ui/core";
 
 import FormStyles from "../pages/FormStyles";
 
-const InputContainer = (settings) => {
+const InputContainer = ({ field, form: { touched, errors }, ...settings }) => {
   const classes = FormStyles();
-  const type = settings.type;
-  const formik = settings.validate;
+  const type = field.name;
 
   return (
-    <Grid container direction="column" className={classes.FormInputContainer}>
-      <InputLabel className={classes.FormLabel} htmlFor={type}>
+    <FormControl className={classes.FormInputContainer}>
+      <InputLabel className={classes.FormLabel} htmlFor={type} shrink>
         {settings.icon === undefined ? "" : settings.icon}
         {settings.text}
       </InputLabel>
-      <InputBase
-        id={type}
-        name={type}
-        type={type}
-        onChange={formik.handleChange}
-        value={formik.values[type]}
-        className={classes.FormInput}
-      />
-      {formik.touched[type] && formik.errors[type] ? (
-        <Box className={classes.FormErrorLabel}>{formik.errors[type]}</Box>
+      <Input {...field} {...settings} id={type} className={classes.FormInput} />
+      {touched[type] && errors[type] ? (
+        <FormHelperText className={classes.FormErrorLabel}>
+          {errors[type]}
+        </FormHelperText>
       ) : null}
-    </Grid>
+    </FormControl>
   );
 };
 

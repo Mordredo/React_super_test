@@ -1,12 +1,16 @@
 import React from "react";
 import { Grid, Box } from "@material-ui/core";
 
+import { Switch, Route } from "react-router-dom";
 import NavbarMenu from "../navbar/Navbar";
 
 import AppStyles from "../../AppStyles";
 import Header from "../header/Header";
+import Blog from "./blog/Blog";
+import CreateView from "./createView/CreateView";
+import routes from "../../Routes";
 
-const PageBlock = (curPage) => {
+const PageWrapper = () => {
   const classes = AppStyles();
 
   return (
@@ -22,11 +26,17 @@ const PageBlock = (curPage) => {
           <NavbarMenu />
         </Grid>
         <Grid item xs={10}>
-          <curPage.page />
+          <Switch>
+            <Route exact path={routes.private.view} component={CreateView} />
+            <Route
+              path={[routes.private.blog, routes.private.index]}
+              component={Blog}
+            />
+          </Switch>
         </Grid>
       </Grid>
     </Box>
   );
 };
 
-export default PageBlock;
+export default PageWrapper;

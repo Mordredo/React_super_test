@@ -8,21 +8,6 @@ const ButtonConstruct = (settings) => {
     settings.variant === undefined ? "contained" : settings.variant;
   const typeBtn = settings.type === undefined ? "button" : settings.type;
 
-  if (settings.link !== undefined) {
-    return (
-      <Button
-        type={typeBtn}
-        color="primary"
-        variant={newVariant}
-        className={settings.styles}
-        startIcon={icon}
-        component={Link}
-        to={settings.link}
-      >
-        {settings.text}
-      </Button>
-    );
-  }
   return (
     <Button
       type={typeBtn}
@@ -30,6 +15,8 @@ const ButtonConstruct = (settings) => {
       variant={newVariant}
       className={settings.styles}
       startIcon={icon}
+      component={settings.link !== undefined ? Link : "button"}
+      to={settings.link !== undefined ? settings.link : undefined}
     >
       {settings.text}
     </Button>

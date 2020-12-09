@@ -26,7 +26,7 @@ const DrowIcon = () => {
         stroke="#2A4365"
         strokeWidth="2"
         strokeLinecap="round"
-        strokLlinejoin="round"
+        strokeLinejoin="round"
       />
     </SvgIcon>
   );

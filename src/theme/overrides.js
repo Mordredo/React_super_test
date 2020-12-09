@@ -29,6 +29,19 @@ const overrides = {
       fontWeight: "bold",
     },
   },
+  MuiInputBase: {
+    root: {
+      "&::before, &::after": {
+        border: "none !important",
+      },
+      // backgroundColor: "#eeeeee",
+      // margin: "2.4rem 0",
+      // height: "7rem",
+      // borderRadius: "1rem",
+      // fontSize: "2rem",
+      // color: "#2A4365",
+    },
+  },
   MuiAppBar: {
     root: {
       padding: "1.5rem 3.8rem 1.5rem 7rem",
