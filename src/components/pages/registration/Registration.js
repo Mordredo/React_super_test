@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Grid, Box } from "@material-ui/core";
 import { Field, Form, Formik } from "formik";
 
@@ -14,9 +15,31 @@ import sheme from "../../../validation/validateReg";
 
 import FormStyles from "../FormStyles";
 
-const Login = () => {
+import * as constants from "../../../store/storeConstants";
+
+const Registration = () => {
   const classes = FormStyles();
   const formik = validate();
+  const dispatch = useDispatch();
+
+  const onSubmit = (values) => {
+    const userList = {
+      fullName: values.name,
+      userMail: values.email,
+      pass: values.password,
+      isAdmin: false,
+    };
+
+    if (Object.keys(userList).length > 0) {
+      dispatch({ type: constants.SET_USER, payload: userList });
+    }
+
+    // window.location.href = "/login";
+
+    return userList;
+  };
+
+  console.log(useSelector((state) => state.userList));
 
   return (
     <Grid
@@ -37,7 +60,7 @@ const Login = () => {
         <Formik
           validationSchema={sheme}
           initialValues={formik.initialValues}
-          onSubmit={formik.handleSubmit}
+          onSubmit={onSubmit}
         >
           {(props) => (
             <Form
@@ -51,6 +74,7 @@ const Login = () => {
                 type="name"
                 icon={<UserIcon />}
                 text="Full name"
+                onChange={props.handleChange}
                 component={InputContainer}
               />
               <Field
@@ -58,6 +82,7 @@ const Login = () => {
                 type="email"
                 icon={<EmailIcon />}
                 text="Email address"
+                onChange={props.handleChange}
                 component={InputContainer}
               />
               <Field
@@ -65,6 +90,7 @@ const Login = () => {
                 type="password"
                 icon={<PassIcon />}
                 text="Password"
+                onChange={props.handleChange}
                 component={InputContainer}
               />
               <Field
@@ -72,6 +98,7 @@ const Login = () => {
                 type="password"
                 icon={<PassIcon />}
                 text="Repeat password"
+                onChange={props.handleChange}
                 component={InputContainer}
               />
               <Field
@@ -95,4 +122,4 @@ const Login = () => {
     </Grid>
   );
 };
-export default Login;
+export default Registration;

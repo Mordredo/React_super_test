@@ -8,10 +8,6 @@ const FormikLogin = () => {
       password: "",
       email: "",
     },
-    onSubmit: () => {
-      sessionStorage.setItem("token", token + token);
-      window.location.href = "/";
-    },
   });
 
   return formik;

@@ -2,6 +2,8 @@ import React from "react";
 import { Grid, Box } from "@material-ui/core";
 import { Field, Form, Formik } from "formik";
 
+import { useSelector } from "react-redux";
+
 import EmailIcon from "../../../icons/EmailIcon";
 import PassIcon from "../../../icons/PassIcon";
 import BigLogoIcon from "../../../icons/BigLogoIcon";
@@ -9,12 +11,22 @@ import ButtonItem from "../../multiple/Button";
 import validate from "../../../validation/FormikLogin";
 import InputContainer from "../../multiple/InputContainer";
 import sheme from "../../../validation/validateLogin";
+import detectUser from "../../../enums/detectUser";
 
 import FormStyles from "../FormStyles";
 
 const Login = () => {
   const classes = FormStyles();
   const formik = validate();
+  const userList = useSelector((state) => state.userList);
+
+  const onSubmit = (values) => {
+    if (detectUser(values, userList)) {
+      console.log("redirect");
+    }
+
+    return values;
+  };
 
   return (
     <Grid
@@ -35,7 +47,7 @@ const Login = () => {
         <Formik
           validationSchema={sheme}
           initialValues={formik.initialValues}
-          onSubmit={formik.handleSubmit}
+          onSubmit={onSubmit}
         >
           {(props) => (
             <Form

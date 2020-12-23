@@ -16,9 +16,7 @@ export default Yup.object().shape({
     .oneOf([Yup.ref("password"), null], schema.rePass)
     .required(schema.required),
   email: Yup.string().email(schema.email).required(schema.required),
-  politics: Yup.boolean()
-    .oneOf([true], schema.politics)
-    .required(schema.politics),
+  politics: Yup.boolean().oneOf([true], schema.politics),
   name: Yup.string()
     .required(schema.required)
     .matches(nameRegex, schema.name)

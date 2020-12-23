@@ -9,7 +9,6 @@ const FormikLogin = () => {
       password: "",
       email: "",
     },
-    onSubmit: () => {},
   });
 
   return formik;

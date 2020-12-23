@@ -8,14 +8,19 @@ import {
 
 import FormStyles from "../pages/FormStyles";
 
-const InputContainer = ({ field, form: { touched, errors }, ...settings }) => {
+const InputContainer = ({
+  field,
+  form: { touched, errors },
+  icon,
+  ...settings
+}) => {
   const classes = FormStyles();
   const type = field.name;
 
   return (
     <FormControl className={classes.FormInputContainer}>
       <InputLabel className={classes.FormLabel} htmlFor={type} shrink>
-        {settings.icon === undefined ? "" : settings.icon}
+        {icon === undefined ? "" : icon}
         {settings.text}
       </InputLabel>
       <Input {...field} {...settings} id={type} className={classes.FormInput} />

@@ -12,28 +12,23 @@ import routes from "../../Routes";
 
 const Pages = () => (
   <Switch>
-    {/* <Route */}
-    {/*  exact */}
-    {/*  path={[routes.public.login, routes.public.index]} */}
-    {/*  component={Login} */}
-    {/* /> */}
-    <Route
+    <PublicRoute
+      exact
+      path={[routes.public.login, routes.public.index]}
+      component={Login}
+    />
+    <PublicRoute
       exact
       path={[routes.public.registration, routes.public.index]}
       component={Registration}
     />
-    <Route
+    <PrivateRoute
       exact
       path={[routes.private.blog, routes.private.index]}
       component={PageWrapper}
     />
-    {/* <PrivateRoute component={PageWrapper} /> */}
 
-    {/* <PublicRoute */}
-    {/*  exact */}
-    {/*  path={[routes.public.login, routes.public.index]} */}
-    {/*  component={Login} */}
-    {/* /> */}
+    <PrivateRoute exact path={routes.private.view} component={PageWrapper} />
   </Switch>
 );
 
