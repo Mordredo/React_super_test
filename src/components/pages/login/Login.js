@@ -1,8 +1,7 @@
 import React from "react";
 import { Grid, Box } from "@material-ui/core";
 import { Field, Form, Formik } from "formik";
-
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import EmailIcon from "../../../icons/EmailIcon";
 import PassIcon from "../../../icons/PassIcon";
@@ -14,15 +13,23 @@ import sheme from "../../../validation/validateLogin";
 import detectUser from "../../../enums/detectUser";
 
 import FormStyles from "../FormStyles";
+import * as constants from "../../../store/storeConstants";
 
 const Login = () => {
   const classes = FormStyles();
   const formik = validate();
   const userList = useSelector((state) => state.userList);
+  const dispatch = useDispatch();
+  const token = Math.random().toString(36).substr(2);
 
   const onSubmit = (values) => {
-    if (detectUser(values, userList)) {
-      console.log("redirect");
+    if (detectUser(values, userList) !== undefined) {
+      const userActive = detectUser(values, userList);
+      const Id = userActive.id;
+
+      if (Object.keys(userActive).length > 0) {
+        dispatch({ type: constants.UPDATE_USER, payload: { Id, token } });
+      }
     }
 
     return values;

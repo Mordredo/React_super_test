@@ -14,7 +14,7 @@ const theme = CustomTheme;
 
 const useStyles = {
   errorColor: theme.palette.error.main,
-  warningColor: theme.palette.error.main,
+  warningColor: theme.palette.warning.main,
   successColor: theme.palette.success.main,
   bodyCellWidth: "45%",
 };

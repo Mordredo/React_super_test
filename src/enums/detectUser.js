@@ -1,15 +1,20 @@
-import React from "react";
-
 const detectUser = (formData, userList) => {
-  const result = [formData].filter((formElem) =>
-    userList.some(
-      (storeElem) =>
+  let userIndex = null;
+  let result = null;
+  [formData].filter((formElem) => {
+    userList.some((storeElem, index) => {
+      if (
         formElem.email === storeElem.userMail &&
         formElem.password === storeElem.pass
-    )
-  );
+      ) {
+        userIndex = index;
+      }
+    });
 
-  return !!result.length;
+    result = userList[userIndex];
+  });
+
+  return result;
 };
 
 export default detectUser;

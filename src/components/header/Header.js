@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Avatar, AppBar } from "@material-ui/core";
 
+import { useSelector } from "react-redux";
 import avatar from "../../images/avatar.png";
 import HeaderStyles from "./Styles";
 import LogoIcon from "../../icons/LogoIcon";
@@ -16,7 +17,11 @@ const Header = () => {
           <LogoIcon />
         </Grid>
         <Grid xs={6} container item justify="flex-end" alignItems="center">
-          <ButtonItem text="Pro plan" styles={classes.headerBtn}></ButtonItem>
+          <ButtonItem
+            text="Logout"
+            styles={classes.headerBtn}
+            logout={true}
+          ></ButtonItem>
           <Avatar src={avatar} alt="avatar" className={classes.avatar} />
         </Grid>
       </Grid>

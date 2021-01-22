@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const useToken = () => {
-  const sessionToken = sessionStorage.getItem("token");
-  // const [token, setToken] = useState(null);
-
-  // useEffect(() => {
-  //   setToken(sessionToken);
-  // }, [sessionToken]);
+  const userList = useSelector((state) => state.userList);
+  let sessionToken = null;
+  userList.some((storeElem, index) => {
+    if (storeElem.sessionToken.length > 0) {
+      sessionToken = storeElem.sessionToken;
+    }
+  });
 
   return sessionToken;
 };

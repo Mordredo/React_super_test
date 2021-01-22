@@ -21,25 +21,25 @@ const Registration = () => {
   const classes = FormStyles();
   const formik = validate();
   const dispatch = useDispatch();
-
+  const userLength = useSelector((state) => state.userList).length;
   const onSubmit = (values) => {
     const userList = {
+      id: userLength + 1,
       fullName: values.name,
       userMail: values.email,
       pass: values.password,
       isAdmin: false,
+      sessionToken: "",
     };
 
     if (Object.keys(userList).length > 0) {
       dispatch({ type: constants.SET_USER, payload: userList });
     }
 
-    // window.location.href = "/login";
+    window.location.href = "/login";
 
     return userList;
   };
-
-  console.log(useSelector((state) => state.userList));
 
   return (
     <Grid

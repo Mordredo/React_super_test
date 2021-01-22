@@ -12,6 +12,13 @@ import routes from "../../Routes";
 
 const Pages = () => (
   <Switch>
+    <PrivateRoute
+      exact
+      path={[routes.private.blog, routes.private.index]}
+      component={PageWrapper}
+    />
+
+    <PrivateRoute exact path={routes.private.view} component={PageWrapper} />
     <PublicRoute
       exact
       path={[routes.public.login, routes.public.index]}
@@ -22,13 +29,6 @@ const Pages = () => (
       path={[routes.public.registration, routes.public.index]}
       component={Registration}
     />
-    <PrivateRoute
-      exact
-      path={[routes.private.blog, routes.private.index]}
-      component={PageWrapper}
-    />
-
-    <PrivateRoute exact path={routes.private.view} component={PageWrapper} />
   </Switch>
 );
 
