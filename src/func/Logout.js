@@ -1,5 +1,3 @@
-import React from "react";
-
 const Logout = (userList) => {
   let result = null;
   userList.some((storeElem) => {

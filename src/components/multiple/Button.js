@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import Logout from "../../func/Logout";
-import detectUser from "../../enums/detectUser";
 import * as constants from "../../store/storeConstants";
 
 const ButtonConstruct = (settings) => {
